@@ -1,0 +1,11 @@
+#theme = "/Users/jan/.local/share/nvim/lazy/nightfox.nvim/extra/carbonfox/carbonfox.ghostty"
+theme = GruvboxDark
+font-size = 17
+font-thicken
+macos-titlebar-style = hidden
+#foreground = #eeeeff
+background = #000000
+window-padding-x = 10
+window-padding-y = 5
+shell-integration = zsh
+shell-integration-features = cursor,sudo
