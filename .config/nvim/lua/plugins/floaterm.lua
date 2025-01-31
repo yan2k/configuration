@@ -33,6 +33,7 @@ local function create_floating_window(opts)
     row = row,
     style = "minimal",
     border = "rounded",
+    title = "Floaterm"
   }
 
   local win = vim.api.nvim_open_win(buf, true, win_config)
