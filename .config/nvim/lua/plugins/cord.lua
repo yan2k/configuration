@@ -1,9 +1,9 @@
 local function isDirectoryInWhitelist()
-  local buf_path = vim.fn.expand('%:p:h')
+  local buf_path = vim.fn.expand("%:p:h")
   local whitelist = {
-    os.getenv("HOME") .. '/fun/',
-    os.getenv("HOME") .. '/.dotfiles',
-    os.getenv("HOME") .. '/.config/nvim'
+    os.getenv("HOME") .. "/fun/",
+    os.getenv("HOME") .. "/.dotfiles",
+    os.getenv("HOME") .. "/.config/nvim",
   }
 
   for _, dir in ipairs(whitelist) do
@@ -16,33 +16,34 @@ local function isDirectoryInWhitelist()
 end
 
 return {
-  'vyfor/cord.nvim',
-  branch = 'client-server',
-  build = ':Cord update',
+  "vyfor/cord.nvim",
+  -- branch = "master",
+  build = ":Cord update",
   opts = {
     editor = {
+      client = "neovim",
       tooltip = "Vim",
     },
     text = {
       viewing = function(opts)
-        return isDirectoryInWhitelist() and ('Viewing ' .. opts.filename) or 'Viewing a file'
+        return isDirectoryInWhitelist() and ("" .. opts.filename) or "Viewing a file"
       end,
       editing = function(opts)
-        return isDirectoryInWhitelist() and ('Editing ' .. opts.filename) or 'Editing a file'
+        return isDirectoryInWhitelist() and ("Editing " .. opts.filename) or "Editing a file"
       end,
       workspace = function(opts)
-        return isDirectoryInWhitelist() and ('Working on ' .. opts.workspace) or 'In a secret workspace'
-      end
+        return isDirectoryInWhitelist() and ("Working on " .. opts.workspace) or "In a secret workspace"
+      end,
     },
     assets = {
       netrw = {
-        name = 'Netrw',
-        type = 'file_browser'
+        name = "Netrw",
+        type = "file_browser",
       },
       Floaterm = {
-        name = 'Terminal',
-        type = 'termnial'
-      }
-    }
+        name = "Terminal",
+        type = "termnial",
+      },
+    },
   },
 }
