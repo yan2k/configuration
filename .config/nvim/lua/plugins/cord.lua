@@ -35,15 +35,6 @@ return {
         return isDirectoryInWhitelist() and ("Working on " .. opts.workspace) or "In a secret workspace"
       end,
     },
-    assets = {
-      netrw = {
-        name = "Netrw",
-        type = "file_browser",
-      },
-      Floaterm = {
-        name = "Terminal",
-        type = "termnial",
-      },
-    },
+    assets = {},
   },
 }

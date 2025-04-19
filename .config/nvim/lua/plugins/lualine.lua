@@ -6,6 +6,7 @@ return {
       theme = "auto",
       component_seperators = "",
       section_separators = { left = "", right = "" },
+      disabled_filetypes = { statusline = { "dashboard", "alpha", "ministarter", "snacks_dashboard" } },
     }
     opts.sections = {
       lualine_a = { { "mode", separator = { left = "" }, right_padding = 2 } },

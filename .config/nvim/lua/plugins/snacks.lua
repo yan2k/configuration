@@ -1,13 +1,32 @@
 return {
   "folke/snacks.nvim",
-  priority = 1000,
+  dependencies = { "nvim-tree/nvim-web-devicons" },
   lazy = false,
+  priority = 1000,
   ---@type snacks.Config
   opts = {
+    dashboard = { enabled = true },
+    lazygit = {
+      enabled = true,
+      win = {
+        style = "terminal",
+      },
+    },
     explorer = {
+      enabled = true,
       layout = "default",
     },
+    input = {
+      enabled = true,
+    },
+    indent = {
+      enabled = true,
+    },
+    notifier = {
+      enabled = true,
+    },
     terminal = {
+      enabled = true,
       win = {
         position = "float",
         style = "terminal",
@@ -20,20 +39,61 @@ return {
   },
   keys = {
     {
+      "<leader><space>",
+      function()
+        Snacks.picker.smart()
+      end,
+      desc = "Smart Find Files",
+    },
+    {
+      "<leader>ft",
+      function()
+        Snacks.terminal()
+      end,
+    },
+    {
+      "<leader>fp",
+      function()
+        Snacks.picker.projects({
+          ---@class snacks.picker.projects.Config: snacks.picker.Config
+          finder = "recent_projects",
+          patterns = { ".git", "_darcs", ".hg", ".bzr", ".svn", "package.json", "Makefile" },
+          recent = true,
+          format = "file",
+          dev = { "~/Developer", "~/fun" },
+        })
+      end,
+    },
+    {
       "<leader>fe",
       function()
-        Snacks.explorer({ cwd = LazyVim.root(), layout = "default" })
+        Snacks.picker.explorer(
+          --@class snacks.picker.explorer.Config
+          {
+            layout = { preset = "default" },
+            follow_file = true,
+            auto_close = true,
+          }
+        )
       end,
-      desc = "Explorer Snacks (root dir)",
+      desc = "Explorer Snacks",
     },
     {
       "<leader>fE",
+      ---Snacks.picker.files
       function()
-        Snacks.explorer({ layout = "default" })
+        Snacks.picker.explorer(
+          --@class snacks.picker.explorer.Config
+          {
+            layout = { preset = "default" },
+            auto_close = true,
+          }
+        )
       end,
-      desc = "Explorer Snacks (cwd)",
+      desc = "Explorer Snacks (hidden files)",
     },
-    { "<leader>e", "<leader>fe", desc = "Explorer Snacks (root dir)", remap = true },
-    { "<leader>E", "<leader>fE", desc = "Explorer Snacks (cwd)", remap = true },
+    { "<leader>e", "<leader>fe", desc = "Explorer Snacks (pwd)", remap = true },
+    { "<leader>E", "<leader>fE", desc = "Explorer Snacks (root dir)", remap = true },
+    { "<leader>p", "<leader>fp", desc = "Recent Projects Snacks", remap = true },
   },
 }

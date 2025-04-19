@@ -1,4 +1,4 @@
-theme = "/Users/jan/.local/share/nvim/lazy/tokyodark.nvim/extra/ghostty/tokyodark"
+theme = "/Users/jan/.config/ghostty/themes/kitty"
 font-family = "Hack Nerd Font Mono"
 font-size = 17
 font-thicken
