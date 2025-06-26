@@ -18,6 +18,7 @@ end
 return {
   "vyfor/cord.nvim",
   -- branch = "master",
+  enabled = false,
   build = ":Cord update",
   opts = {
     editor = {

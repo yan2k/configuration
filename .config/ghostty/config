@@ -4,9 +4,11 @@ font-size = 17
 font-thicken
 window-decoration = false
 #macos-titlebar-style = hidden
-#foreground = #eeeeff
-#background = #000000
+#141417
+#background = #111114
+background = #000000
 window-padding-x = 10
 window-padding-y = 5
 shell-integration = zsh
-shell-integration-features = cursor,sudo
+shell-integration-features = cursor
+mouse-hide-while-typing
