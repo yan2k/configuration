@@ -17,6 +17,9 @@ export CPPFLAGS="-I/opt/homebrew/include"
 
 export PATH="/Users/jan/.cargo/bin:$PATH"
 
+
+export TYPST_PACKAGES=~/Documents/typst-packages/
+
 # bun completions
 [ -s "/Users/jan/.bun/_bun" ] && source "/Users/jan/.bun/_bun"
 

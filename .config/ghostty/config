@@ -1,10 +1,9 @@
-theme = "/Users/jan/.config/ghostty/themes/kitty"
+theme = kitty
 font-family = "Hack Nerd Font Mono"
 font-size = 17
 font-thicken
-window-decoration = false
-#macos-titlebar-style = hidden
-#141417
+#window-decoration = false
+macos-titlebar-style = tabs
 #background = #111114
 background = #000000
 window-padding-x = 10
@@ -12,3 +11,18 @@ window-padding-y = 5
 shell-integration = zsh
 shell-integration-features = cursor
 mouse-hide-while-typing
+
+
+# Keybinds
+keybind = super+ctrl+l=goto_split:right
+keybind = super+ctrl+h=goto_split:left
+keybind = super+ctrl+j=goto_split:down
+keybind = super+ctrl+k=goto_split:up
+
+keybind = super+alt+l=resize_split:right,20
+keybind = super+alt+h=resize_split:left,20
+keybind = super+alt+j=resize_split:down,20
+keybind = super+alt+k=resize_split:up,20
+
+# Cursor shader
+custom-shader = ./shaders/cursor_smear.glsl

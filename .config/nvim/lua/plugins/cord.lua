@@ -18,9 +18,9 @@ end
 return {
   "vyfor/cord.nvim",
   -- branch = "master",
-  enabled = false,
   build = ":Cord update",
   opts = {
+    enabled = false,
     editor = {
       client = "neovim",
       tooltip = "Vim",
@@ -33,7 +33,7 @@ return {
         return isDirectoryInWhitelist() and ("Editing " .. opts.filename) or "Editing a file"
       end,
       workspace = function(opts)
-        return isDirectoryInWhitelist() and ("Working on " .. opts.workspace) or "In a secret workspace"
+        return isDirectoryInWhitelist() and ("In " .. opts.workspace) or "In secret workspace"
       end,
     },
     assets = {},
