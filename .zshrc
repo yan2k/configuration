@@ -15,15 +15,17 @@ alias tmux='tmux -u'
 export LDFLAGS="-L/opt/homebrew/lib"
 export CPPFLAGS="-I/opt/homebrew/include"
 
+# Add cargo to PATH
 export PATH="/Users/jan/.cargo/bin:$PATH"
-
 
 export TYPST_PACKAGES=~/Documents/typst-packages/
 
 # bun completions
 [ -s "/Users/jan/.bun/_bun" ] && source "/Users/jan/.bun/_bun"
-
-# bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+export GOPATH="$HOME/.local/go"
+
+# zoxide
 eval "$(zoxide init zsh)"
