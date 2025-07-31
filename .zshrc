@@ -1,7 +1,6 @@
 eval "$(/opt/homebrew/bin/brew shellenv)"
 export CLICOLOR=1
-export PS1=$'%n@%m:\e[0;36m%~\e[0m$ '
-
+PROMPT='%n%f@%m:%F{cyan}%~%f$ '
 
 #YT Downloader
 function yta () yt-dlp -f 'ba' -x --audio-format wav $1
@@ -21,8 +20,8 @@ export PATH="/Users/jan/.cargo/bin:$PATH"
 export TYPST_PACKAGES=~/Documents/typst-packages/
 
 # bun completions
-[ -s "/Users/jan/.bun/_bun" ] && source "/Users/jan/.bun/_bun"
-export BUN_INSTALL="$HOME/.bun"
+[ -s "/Users/jan/.local/bun/_bun" ] && source "/Users/jan/.local/bun/_bun"
+export BUN_INSTALL="$HOME/.local/bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
 export GOPATH="$HOME/.local/go"

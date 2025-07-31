@@ -68,7 +68,7 @@ return {
         Snacks.picker.projects({
           ---@class snacks.picker.projects.Config: snacks.picker.Config
           finder = "recent_projects",
-          patterns = { ".git", "_darcs", ".hg", ".bzr", ".svn", "package.json", "Makefile" },
+          patterns = { ".git", "_darcs", ".hg", ".bzr", ".svn", "package.json", "Makefile", ".mod" },
           recent = true,
           format = "file",
           dev = { "~/Developer", "~/fun" },

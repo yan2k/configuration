@@ -20,7 +20,7 @@ return {
   -- branch = "master",
   build = ":Cord update",
   opts = {
-    enabled = false,
+    enabled = true,
     editor = {
       client = "neovim",
       tooltip = "Vim",

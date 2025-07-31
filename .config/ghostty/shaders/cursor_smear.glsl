@@ -54,16 +54,15 @@ float determineStartVertexFactor(vec2 a, vec2 b) {
 }
 
 vec2 getRectangleCenter(vec4 rectangle) {
-    return vec2(rectangle.x + (rectangle.z / 2.), rectangle.y - (rectangle.w / 2.));
+   return vec2(rectangle.x + (rectangle.z / 2.), rectangle.y - (rectangle.w / 2.));
 }
 float ease(float x) {
     return pow(1.0 - x, 3.0);
 }
 
-const vec4 TRAIL_COLOR = vec4(1., 1., 0., 1.0);
+const vec4 TRAIL_COLOR = vec4(0.6471, 0.655, 0.749, 1.0);
 const float OPACITY = 0.6;
-const float DURATION = 0.3; //IN SECONDS
-
+const float DURATION = 0.2; //IN SECONDS
 void mainImage(out vec4 fragColor, in vec2 fragCoord)
 {
 
@@ -79,7 +78,6 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)
     // zw has the width and height
     vec4 currentCursor = vec4(normalize(iCurrentCursor.xy, 1.), normalize(iCurrentCursor.zw, 0.));
     vec4 previousCursor = vec4(normalize(iPreviousCursor.xy, 1.), normalize(iPreviousCursor.zw, 0.));
-
     // When drawing a parellelogram between cursors for the trail i need to determine where to start at the top-left or top-right vertex of the cursor
     float vertexFactor = determineStartVertexFactor(currentCursor.xy, previousCursor.xy);
     float invertedVertexFactor = 1.0 - vertexFactor;
