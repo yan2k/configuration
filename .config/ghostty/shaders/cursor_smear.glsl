@@ -62,7 +62,7 @@ float ease(float x) {
 
 const vec4 TRAIL_COLOR = vec4(0.6471, 0.655, 0.749, 1.0);
 const float OPACITY = 0.6;
-const float DURATION = 0.2; //IN SECONDS
+const float DURATION = 0.05; //IN SECONDS
 void mainImage(out vec4 fragColor, in vec2 fragCoord)
 {
 
