@@ -9,8 +9,8 @@ if [[ ! -z $url ]]; then
 		url=$(echo "$url" | sed -E 's/:[0-9]+|:/\//')
 		url="https://$url"
 	fi
-
 	open "$url"
-fi
 
-echo "No Repository found"
+else
+	echo "No Repository found"
+fi
