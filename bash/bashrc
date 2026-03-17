@@ -1,0 +1,15 @@
+#
+# ~/.bashrc
+#
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+export EDITOR="nvim"
+
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+alias vim='nvim'
+
+
+PS1='${debian_chroot:+($debian_chroot)}\[\e[38;2;122;162;247m\]\u@\h\[\e[0m\]:\[\e[38;2;125;207;255m\]\w\[\e[0m\]\[\e[38;2;187;154;247m\]\$ \[\e[0m\]'

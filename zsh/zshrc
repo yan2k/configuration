@@ -16,7 +16,7 @@ export LDFLAGS="-L/opt/homebrew/lib"
 export CPPFLAGS="-I/opt/homebrew/include"
 
 
-export TYPST_PACKAGES=~/Documents/.typst-packages/
+export TYPST_PACKAGES=~/Documents/typst-packages/
 export GOPATH="$HOME/.local/go"
 export CPATH=/opt/homebrew/include
 export LIBRARY_PATH=/opt/homebrew/lib
