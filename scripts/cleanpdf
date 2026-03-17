@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+if [ "$#" -ne 1 ]; then
+  echo "Usage: $0 file.pdf" >&2
+  exit 1
+fi
+
+PDF="$1"
+MATCH="Jan"
+
+DIR="$(cd "$(dirname "$PDF")" && pwd)"
+BASE="$(basename "$PDF" .pdf)"
+
+QDF="$DIR/.${BASE}.qdf.pdf"
+EDITED="$DIR/.${BASE}.edited.qdf.pdf"
+OUT="$DIR/.${BASE}.out.pdf"
+BAK="$DIR/${BASE}.pdf.bak"
+
+# 1) Create QDF (must be a real file)
+qpdf --qdf --object-streams=disable --stream-data=uncompress \
+  "$PDF" "$QDF"
+
+# 2) Edit ONLY stream contents (byte-safe)
+LC_ALL=C awk -v s="$MATCH" '
+  BEGIN { in_stream=0 }
+  /^stream[[:space:]]*$/     { in_stream=1; print; next }
+  /^endstream[[:space:]]*$/  { in_stream=0; print; next }
+  in_stream && index($0, s)  { next }
+  { print }
+' "$QDF" > "$EDITED"
+
+# 3) Fix QDF invariants
+fix-qdf "$EDITED" > "$QDF"
+
+# 4) Rebuild clean PDF
+qpdf "$QDF" "$OUT"
+qpdf --check "$OUT" >/dev/null
+
+# 5) Backup and overwrite
+cp -p "$PDF" "$BAK"
+mv "$OUT" "$PDF"
+
+# 6) Cleanup
+rm -f "$QDF" "$EDITED"
+
