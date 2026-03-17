@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 set -euo pipefail
+[[ $# -eq 0 ]] && echo "Usage: ytdl <url>" && exit 1
 yt-dlp -P ~/Downloads/ --recode mp4 -o "%(id)s.%(ext)s" "$1"

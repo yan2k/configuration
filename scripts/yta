@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 set -euo pipefail
+[[ $# -eq 0 ]] && echo "Usage: yta <url>" && exit 1
 yt-dlp -f 'ba' -x --audio-format wav "$1"
