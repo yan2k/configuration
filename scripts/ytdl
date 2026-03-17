@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+set -euo pipefail
+yt-dlp -P ~/Downloads/ --recode mp4 -o "%(id)s.%(ext)s" "$1"
