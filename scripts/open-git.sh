@@ -9,7 +9,11 @@ if [[ ! -z $url ]]; then
 		url=$(echo "$url" | sed -E 's/:[0-9]+|:/\//')
 		url="https://$url"
 	fi
-	open "$url"
+	if command -v xdg-open &>/dev/null; then
+		xdg-open "$url"
+	else
+		open "$url"
+	fi
 
 else
 	echo "No Repository found"
