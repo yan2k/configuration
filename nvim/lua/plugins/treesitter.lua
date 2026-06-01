@@ -1,11 +1,9 @@
-return {
-  {
-    "nvim-treesitter/nvim-treesitter",
-    build = ":TSUpdate",
-    config = function()
-      require("nvim-treesitter").setup({
-        ensure_installed = { "svelte", "javascript", "typescript", "css", "html" },
-      })
-    end,
-  },
+vim.pack.add {
+	{ src = "https://github.com/nvim-treesitter/nvim-treesitter" }
 }
+
+vim.api.nvim_create_autocmd('FileType', {
+	pattern = { 'svelte', 'markdown', 'lua', 'rust', 'typst', 'typescript', 'javascript', 'c', 'cpp', 'glsl', 'zig', 'python', "typescriptreact", "react", },
+	callback = function() vim.treesitter.start() end,
+})
+

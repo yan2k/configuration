@@ -1,10 +1,9 @@
-return {
- "stevearc/oil.nvim",
- dependencies = {
-		"nvim-tree/nvim-web-devicons"
- },
- opts = {
-	 lsp_file_methods = {
+vim.pack.add {
+	{ src = "https://github.com/stevearc/oil.nvim" }
+}
+
+require("oil").setup({
+	lsp_file_methods = {
 		enabled = true,
 		timeout_ms = 1000,
 		autosave_changes = true,
@@ -17,5 +16,4 @@ return {
 		max_height = 0.6,
 		border = "rounded",
 	},
- }
-}
+})
