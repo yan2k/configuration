@@ -1,0 +1,42 @@
+let mapleader = " "
+
+set number
+
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set expandtab
+
+set smartindent
+
+set splitbelow
+
+set smartcase
+set ignorecase
+set noswapfile
+set nobackup
+
+if !isdirectory($HOME . "/.vim/undodir")
+  call mkdir($HOME . "/.vim/undodir", "p")
+endif
+set undodir=~/.vim/undodir
+set undofile
+
+set clipboard+=unnamedplus
+set guicursor=
+set scrolloff=8
+set signcolumn=yes
+set termguicolors
+
+set completeopt+=menuone,noselect
+
+
+inoremap <C-c> <Esc>
+nnoremap <silent> <C-c> :nohl<CR>
+
+nnoremap <C-d> <C-d>zz
+nnoremap <C-u> <C-u>zz
+nnoremap n nzzzv
+nnoremap N Nzzzv
+
+nnoremap <leader>v :edit $MYVIMRC<CR>
